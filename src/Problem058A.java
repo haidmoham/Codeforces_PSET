@@ -2,7 +2,7 @@
  * Created by Mohammad Haider (haidmoham) on 7/17/16.
  */
 import java.util.*;
-public class Problem58A {
+public class Problem058A {
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         String in, out, hello;

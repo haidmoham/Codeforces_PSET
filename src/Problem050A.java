@@ -1,5 +1,5 @@
 import java.util.*;
-public class Problem50A {
+public class Problem050A {
 	public static void main(String[] args){
 		Scanner s = new Scanner(System.in);
 		int M = s.nextInt();
