@@ -15,6 +15,7 @@ public class Problem231A {
 			if (a + b + c >= 2)
 				count++;
 		}
+		sc.close();
 		System.out.println(count);
 	}
 }
