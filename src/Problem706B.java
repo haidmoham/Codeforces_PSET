@@ -14,14 +14,10 @@ public class Problem706B {
         int[] coins = new int[q];
         for (int i = 0; i < q; i++)
             coins[i] = sc.nextInt();
-        int[] result = new int[q];
         Arrays.sort(prices);
-        for (int i = 0; i < q; i++){
-            result[i] = binarySearch(prices, coins[i], 0, prices.length);
-        }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < q; i++) {
-            sb.append(result[i]);
+        for (int i = 0; i < q; i++){
+            sb.append(binarySearch(prices, coins[i], 0, prices.length));
             sb.append('\n');
         }
         System.out.println(sb.toString());

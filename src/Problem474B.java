@@ -15,13 +15,15 @@ public class Problem474B {
         int[] juicy = new int[m];
         for (int i = 0; i < m; i++)
             juicy[i] = sc.nextInt();
-        int[] result = new int[m];
-        for (int i = 0; i < m ;i++)
-            result[i] = binarySearch(worms, juicy[i], 0, n-1);
-        for (int i = 0; i < m; i++)
-            System.out.println(result[i]);
-
+        sc.close();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < m ;i++) {
+            sb.append(binarySearch(worms, juicy[i], 0, n-1));
+            sb.append('\n');
+        }
+        System.out.println(sb.toString());
     }
+
     public static int binarySearch(int[] worms, int e, int begin, int end){
         int mid = 0, left = begin, right = end;
         for (int i = 0; i < 200; i++){
