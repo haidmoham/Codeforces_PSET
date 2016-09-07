@@ -55,12 +55,12 @@ class State{
 	public boolean equals(Object o){
 		if (o instanceof State){
 			State other = (State)o;
-			return other.dist == this.dist && other.number == this.number;
+			return other.number == this.number;
 		}
 		return false;
 	}
 	@Override
 	public int hashCode(){
-		return (int) (this.number + this.dist * 1000); 
+		return (int) (this.number); 
 	}
 }
