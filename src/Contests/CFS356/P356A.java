@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class A {
+public class P356A {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Integer> list = new ArrayList<Integer>();
     private static int sum;

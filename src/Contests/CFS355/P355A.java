@@ -6,7 +6,7 @@ package Contests.CFS355;
 
 import java.util.*;
 
-public class A {
+public class P355A {
     private static int roadWidth;
 
     public static void main (String[] args) {
