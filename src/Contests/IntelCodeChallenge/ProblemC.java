@@ -48,20 +48,16 @@ public class ProblemC {
 			this.y = _y;
 		}
 		public static Point next(Point current, int n, int m){
-			/*
-			* In certain cases (namely those where the grid is a rectangle) this
-			* method call is creating infinite loops
-			* The method is functional in cases where n == m
-			*/
-			int xdir = 1, ydir = 1;
-			Point next = new Point(current.x + 1*xdir, current.y + 1*ydir);
+			double dir = Math.sqrt(2);
+			double angle = Math.tan(dir);
+			Point next = new Point( (int) (current.x + (1 * dir)),(int)  (current.y + (1*dir)));
 			if (next.x > n) {
-				xdir *= -1;
-				next.x = current.x + 1 * xdir;
+				dir *= -1;
+				next.x = (int) (current.x + (1 * (dir * Math.cos(angle))));
 			}
 			if (next.y > m) {
-				ydir *= -1;
-				next.y = current.y + 1 * ydir;
+				dir *= -1;
+				next.y = (int) (current.y + (1 * (dir * Math.cos(angle))));
 			}
 			if ((next.x == n && next.y == m) || (next.x == 0 && next.y == 0) || (next.x == 0 && next.y == m) || 
 					next.x == n && next.y == 0){
