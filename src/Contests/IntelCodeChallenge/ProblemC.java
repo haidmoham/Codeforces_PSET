@@ -14,11 +14,13 @@ public class ProblemC {
 		int index = 1;
 		rays.put(index, next);
 		Point current = start;
-		Point next1 = Point.next(current, n, m);
-		Point next2 = Point.next(next1, n, m);
-		Point next3 = Point.next(next2, n, m);
-		System.out.println(start.toString() + " " + next1.toString() + " " + next2.toString() + " " 
-				+ next3.toString());
+		while((next.x != -1 && next.y != -1)) {
+			next = Point.next(current, n, m);
+			rays.put(index, next);
+			index++;
+			current = next;
+			System.out.println(current.toString() + " " + next.toString());
+		}
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < sensors.length; i++) {
 			if (!rays.containsValue(sensors[i])) {
@@ -46,16 +48,26 @@ public class ProblemC {
 			this.y = _y;
 		}
 		public static Point next(Point current, int n, int m){
-			Point next = new Point(current.x + 1, current.y + 1);
+			/*
+			* In certain cases (namely those where the grid is a rectangle) this
+			* method call is creating infinite loops
+			* The method is functional in cases where n == m
+			*/
+			int xdir = 1, ydir = 1;
+			Point next = new Point(current.x + 1*xdir, current.y + 1*ydir);
 			if (next.x > n) {
-				next.x = next.x-2;
+				xdir *= -1;
+				next.x = current.x + 1 * xdir;
 			}
 			if (next.y > m) {
-				next.y = next.y - 2;
+				ydir *= -1;
+				next.y = current.y + 1 * ydir;
 			}
 			if ((next.x == n && next.y == m) || (next.x == 0 && next.y == 0) || (next.x == 0 && next.y == m) || 
-					next.x == n && next.y == 0)
-				next = null;
+					next.x == n && next.y == 0){
+				next.x = -1;
+				next.y = -1;
+			}
 			return next;
 		}
 		@Override
