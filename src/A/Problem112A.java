@@ -6,22 +6,7 @@ public class Problem112A {
 	public static void main(String[] args)
 	{
 		Scanner s = new Scanner(System.in);
-		String[] ar = new String[2];
-		ar[0] = s.nextLine();
-		ar[1] = s.nextLine();
-		s.close();
-		int result;
-		
-		
-		result = ar[0].compareToIgnoreCase(ar[1]);
-		if (result > 0)
-		{
-			result = 1;
-		}
-		else if (result < 0)
-		{
-			result = -1;
-		}
-		System.out.println(result);
+		String in1 = s.nextLine(), in2 = s.nextLine();
+        System.out.println(in1.compareToIgnoreCase(in2) == 0 ? 0 : in1.compareToIgnoreCase(in2) < 0 ? -1 : 1);
 	}
 }
