@@ -7,17 +7,41 @@ public class Problem702B {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         long[] in = new long[n];
-        long count = 0;
-        for (int i = 0; i < n; i++)
-            in[i] = sc.nextLong();
+        HashMap<Long, Long> map = new HashMap<>();
         for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
-                if (((in[i] + in[j]) & (in[i] + in[j] - 1)) == 0)
-                    count++;
+            long input = sc.nextLong();
+            in[i] = input;
+            if (map.containsKey(input)){
+                long counter = map.get(input) + 1;
+                map.put(input, counter);
+            }
+            else {
+                map.put(input, 1l);
             }
         }
-        count /= 3;
-
-        System.out.println(count);
+        long[] powers = new long[31];
+        long mask = 1; int index = 0;
+        while (mask <= Integer.MAX_VALUE){
+            powers[index] = mask;
+            index++;
+            mask <<= 1;
+        }
+        long soln = 0;
+        for (int i = 0; i < n; i++){
+            long key = in[i];
+            long mult = map.get(key);
+            for (int j = 0; j < 31; j++){
+                if (powers[j] > key){
+                    long x = powers[j] - key;
+                    if (x == key) soln += mult - 1;
+                    else {
+                        if (map.containsKey(x))  soln += map.get(x);
+                    }
+                }
+            }
+            long value = map.get(key) - 1;
+            map.put(key, value);
+        }
+        System.out.println(soln);
     }
 }

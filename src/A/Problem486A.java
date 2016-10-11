@@ -12,7 +12,7 @@ public class Problem486A {
             sum = n/2;
         }
         else
-            sum = -1 * (n/2 + 1);
+            sum = -1 * (n+1) / 2;
         System.out.println(sum);
     }
 }

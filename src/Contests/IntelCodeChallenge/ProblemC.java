@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class ProblemC {
+    static int xdir = 1, ydir = 1;
 	public static void main(String[] args){ 
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt(), m = sc.nextInt(), k = sc.nextInt();
@@ -48,16 +49,14 @@ public class ProblemC {
 			this.y = _y;
 		}
 		public static Point next(Point current, int n, int m){
-			double dir = Math.sqrt(2);
-			double angle = Math.tan(dir);
-			Point next = new Point( (int) (current.x + (1 * dir)),(int)  (current.y + (1*dir)));
+			Point next = new Point(current.x + 1, current.y + 1);
 			if (next.x > n) {
-				dir *= -1;
-				next.x = (int) (current.x + (1 * (dir * Math.cos(angle))));
+				ydir *= -1;
+				next.x = (current.x - 2);
 			}
 			if (next.y > m) {
-				dir *= -1;
-				next.y = (int) (current.y + (1 * (dir * Math.cos(angle))));
+				xdir *= -1;
+				next.y = (current.y - 2);
 			}
 			if ((next.x == n && next.y == m) || (next.x == 0 && next.y == 0) || (next.x == 0 && next.y == m) || 
 					next.x == n && next.y == 0){
