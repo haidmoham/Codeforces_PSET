@@ -1,4 +1,5 @@
 import java.util.*;
+import static java.lang.Math.*;
 
 public class ProblemA {
 	public static void main(String[] args){
@@ -8,7 +9,8 @@ public class ProblemA {
 		String in2 = sc.nextLine();
 		int i1 = Arrays.asList(days).indexOf(in);
 		int i2 = Arrays.asList(days).indexOf(in2);
-		if (i2 - i1 == 0 || i2 - i1 == 2 || i2 - i1 == 3 || i2 - i1 == -4 || i2 - i1 == -5) {
+		int diff = (14 + i2 - i1) % 7;
+		if (diff == 0 || diff == 2 || diff == 3) {
 			System.out.println("YES");
 		}
 		else System.out.println("NO");
