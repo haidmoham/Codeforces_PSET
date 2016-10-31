@@ -1,17 +1,26 @@
-/**
- * Created by mo on 10/18/16.
+package A; /**
+ * Created by mo on 10/19/16.
  */
 
 import java.util.*;
 import java.io.*;
+import static java.lang.Math.*;
 
-public class ProblemCFaster {
-    static int inf = Integer.MAX_VALUE;
+public class Problem731A {
     public static void main(String[] args) {
-        FastScanner sc = new FastScanner();
-        //Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt(), m = sc.nextInt(), k = sc.nextInt();
-
+        //FastScanner sc = new FastScanner();
+        Scanner sc = new Scanner(System.in);
+        String in = sc.nextLine();
+        char[] ch = in.toCharArray();
+        char ref = 'a';
+        int out = 0;
+        for (int i = 0; i < ch.length; i++) {
+            char curr = ch[i];
+            int d = abs(curr - ref);
+            out += min((d), (26 - d));
+            ref = curr;
+        }
+        System.out.println(out);
     }
 
     public static class FastScanner {

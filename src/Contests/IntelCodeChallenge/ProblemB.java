@@ -11,16 +11,20 @@ public class ProblemB {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), m = sc.nextInt();
         int[][] in = new int[n][m];
-        int[][] copy = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++){
                 int a = sc.nextInt();
                 in[i][j] = a;
-                copy[i][j] = a;
             }
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = i; j < m; j++) {
+                int[][] copy = new int[n][m];
+                for (int k = 0; k < n; k++) {
+                    for (int l = 0; l < m; l++) {
+                        copy[k][l] = in[k][l];
+                    }
+                }
                 swap(copy, i, j);
                 if (valid(copy)) {
                     System.out.println("YES");
