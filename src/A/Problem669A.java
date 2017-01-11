@@ -7,9 +7,11 @@ import java.io.*;
 
 public class Problem669A {
     public static void main(String[] args) {
+        boolean debug = false;
         FastScanner sc = new FastScanner();
+        //Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        System.out.println((2*n)/3 + (n % 3 != 0 ? 1 : 0));
+        System.out.println(2 * (n / 3) + (n % 3 == 0 ? 0 : 1));
     }
 
     public static class FastScanner {
